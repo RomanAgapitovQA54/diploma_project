@@ -46,7 +46,7 @@ java -jar artifacts/aqa-shop.jar -Dspring./datasource/url=jdbc:postgresql://loca
 ```
 Дожидаемся сообщения, которое будет означать готовность SUT к работе:
 ```java
-2023-01-31 15:54:19.651  INFO 8048 --- [           main] ru.netology.shop.ShopApplication         : Started ShopApplication in 27.642 seconds (JVM running for 30.377)
+2023-07-10 15:54:19.651  INFO 8048 --- [           main] ru.netology.shop.ShopApplication         : Started ShopApplication in 27.642 seconds (JVM running for 30.377)
 
 ```
 
