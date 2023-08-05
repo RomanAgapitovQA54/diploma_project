@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import ru.netology.pages.CreditPaymentPage;
 import ru.netology.pages.DebitPaymentPage;
+import ru.netology.pages.MainPage;
 
 import static ru.netology.data.DataHelper.*;
 
@@ -13,40 +14,38 @@ public class InvalidYearTest extends TestBase {
 
 
 
-
-
     @Nested
     class FieldYearOfDebitCardTests {
-
 
 
         @BeforeEach
         void setUpAllDebitCardTests() {
             mainPage.payWithDebitCard();
         }
-        DebitPaymentPage DebitPaymentPage = new DebitPaymentPage();
+
+        DebitPaymentPage debitPaymentPage = new DebitPaymentPage();
 
 
         @Test
         void shouldNotDoPaymentWhenYearEmpty() {
 
             val info = getEmptyYear();
-            DebitPaymentPage.fillForm(info);
-            DebitPaymentPage.waitIfWrongFormatMessage();
+            debitPaymentPage.fillForm(info);
+            debitPaymentPage.waitIfWrongFormatMessage();
         }
 
         @Test
         void shouldNotDoPaymentWhenYearIsEarly() {
             val info = getEarlyYear();
-            DebitPaymentPage.fillForm(info);
-            DebitPaymentPage.waitIfCardExpiredMessage();
+            debitPaymentPage.fillForm(info);
+            debitPaymentPage.waitIfCardExpiredMessage();
         }
 
         @Test
         void shouldNotDoPaymentWhenYearIsFuture() {
             val info = getFutureYear();
-            DebitPaymentPage.fillForm(info);
-            DebitPaymentPage.waitIfWrongTermMessage();
+            debitPaymentPage.fillForm(info);
+            debitPaymentPage.waitIfWrongTermMessage();
         }
     }
 
@@ -54,32 +53,32 @@ public class InvalidYearTest extends TestBase {
     class FieldYearOfCreditCardTests {
 
 
-
         @BeforeEach
         void setUpAllCreditCardTests() {
             mainPage.payWithCreditCard();
         }
-        CreditPaymentPage CreditPaymentPage = new CreditPaymentPage();
+
+        CreditPaymentPage creditPaymentPage = new CreditPaymentPage();
 
         @Test
         void shouldNotDoPaymentWhenYearEmpty() {
             val info = getEmptyYear();
-            CreditPaymentPage.fillForm(info);
-            CreditPaymentPage.waitIfWrongFormatMessage();
+            creditPaymentPage.fillForm(info);
+            creditPaymentPage.waitIfWrongFormatMessage();
         }
 
         @Test
         void shouldNotDoPaymentWhenYearIsEarly() {
             val info = getEarlyYear();
-            CreditPaymentPage.fillForm(info);
-            CreditPaymentPage.waitIfCardExpiredMessage();
+            creditPaymentPage.fillForm(info);
+            creditPaymentPage.waitIfCardExpiredMessage();
         }
 
         @Test
         void shouldNotDoPaymentWhenYearIsFuture() {
             val info = getFutureYear();
-            CreditPaymentPage.fillForm(info);
-            CreditPaymentPage.waitIfWrongTermMessage();
+            creditPaymentPage.fillForm(info);
+            creditPaymentPage.waitIfWrongTermMessage();
         }
     }
 }

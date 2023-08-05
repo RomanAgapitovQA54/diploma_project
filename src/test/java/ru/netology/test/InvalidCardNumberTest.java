@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import ru.netology.pages.CreditPaymentPage;
 import ru.netology.pages.DebitPaymentPage;
+import ru.netology.pages.MainPage;
 
 import static ru.netology.data.DataHelper.*;
 
@@ -22,26 +23,28 @@ public class InvalidCardNumberTest extends TestBase {
         void setUpAllDebitCardTests() {
             mainPage.payWithDebitCard();
         }
-        DebitPaymentPage DebitPaymentPage = new DebitPaymentPage();
+
+        DebitPaymentPage debitPaymentPage = new DebitPaymentPage();
+
         @Test
         void shouldNotDoPaymentWhenEmptyCard() {
             val info = getEmptyCardNumber();
-            DebitPaymentPage.fillForm(info);
-            DebitPaymentPage.waitIfWrongFormatMessage();
+            debitPaymentPage.fillForm(info);
+            debitPaymentPage.waitIfWrongFormatMessage();
         }
 
         @Test
         void shouldNotDoPaymentWhen15Symbols() {
             val info = getInvalidCardNumberWith15Symbols();
-            DebitPaymentPage.fillForm(info);
-            DebitPaymentPage.waitIfWrongFormatMessage();
+            debitPaymentPage.fillForm(info);
+            debitPaymentPage.waitIfWrongFormatMessage();
         }
 
         @Test
         void shouldNotDoPaymentWhenAllZero() {
             val info = getInvalidCardNumberAllZero();
-            DebitPaymentPage.fillForm(info);
-            DebitPaymentPage.waitIfFailMessage();
+            debitPaymentPage.fillForm(info);
+            debitPaymentPage.waitIfFailMessage();
         }
 
 
@@ -51,32 +54,32 @@ public class InvalidCardNumberTest extends TestBase {
     class FieldNumberOfCreditCardTests {
 
 
-
-
         @BeforeEach
         void setUpAllCreditCardTests() {
             mainPage.payWithCreditCard();
         }
-        CreditPaymentPage CreditPaymentPage = new CreditPaymentPage();
+
+        CreditPaymentPage creditPaymentPage = new CreditPaymentPage();
+
         @Test
         void shouldNotDoPaymentWhenEmptyCard() {
             val info = getEmptyCardNumber();
-            CreditPaymentPage.fillForm(info);
-            CreditPaymentPage.waitIfWrongFormatMessage();
+            creditPaymentPage.fillForm(info);
+            creditPaymentPage.waitIfWrongFormatMessage();
         }
 
         @Test
         void shouldNotDoPaymentWhen15Symbols() {
             val info = getInvalidCardNumberWith15Symbols();
-            CreditPaymentPage.fillForm(info);
-            CreditPaymentPage.waitIfWrongFormatMessage();
+            creditPaymentPage.fillForm(info);
+            creditPaymentPage.waitIfWrongFormatMessage();
         }
 
         @Test
         void shouldNotDoPaymentWhenAllZero() {
             val info = getInvalidCardNumberAllZero();
-            CreditPaymentPage.fillForm(info);
-            CreditPaymentPage.waitIfFailMessage();
+            creditPaymentPage.fillForm(info);
+            creditPaymentPage.waitIfFailMessage();
         }
 
 

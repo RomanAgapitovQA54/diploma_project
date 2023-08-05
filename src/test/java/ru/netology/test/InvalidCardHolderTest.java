@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import ru.netology.pages.CreditPaymentPage;
 import ru.netology.pages.DebitPaymentPage;
+import ru.netology.pages.MainPage;
 
 import static ru.netology.data.DataHelper.*;
 
@@ -15,33 +16,33 @@ public class InvalidCardHolderTest extends TestBase {
     class FieldOwnerOfDebitCardTests {
 
 
-
-
         @BeforeEach
         void setUpAllDebitCardTests() {
             mainPage.payWithDebitCard();
         }
-        DebitPaymentPage DebitPaymentPage = new DebitPaymentPage();
+
+        DebitPaymentPage debitPaymentPage = new DebitPaymentPage();
+
         @Test
         void shouldNotDoPaymentWhenOwnerEmpty() {
             val info = getEmptyOwner();
-            DebitPaymentPage.fillForm(info);
-            DebitPaymentPage.waitIfShouldFillFieldMessage();
+            debitPaymentPage.fillForm(info);
+            debitPaymentPage.waitIfShouldFillFieldMessage();
         }
 
 
         @Test
         void shouldNotDoPaymentWhenOwnerInCyrillic() {
             val info = getInvalidOwnerWithCyrillic();
-            DebitPaymentPage.fillForm(info);
-            DebitPaymentPage.waitIfWrongFormatMessage();
+            debitPaymentPage.fillForm(info);
+            debitPaymentPage.waitIfWrongFormatMessage();
         }
 
         @Test
         void shouldNotDoPaymentWhenOwnerWithDigits() {
             val info = getInvalidOwnerWithDigits();
-            DebitPaymentPage.fillForm(info);
-            DebitPaymentPage.waitIfWrongFormatMessage();
+            debitPaymentPage.fillForm(info);
+            debitPaymentPage.waitIfWrongFormatMessage();
         }
 
 
@@ -51,32 +52,33 @@ public class InvalidCardHolderTest extends TestBase {
     class FieldOwnerOfCreditCardTests {
 
 
-
         @BeforeEach
         void setUpAllCreditCardTests() {
             mainPage.payWithCreditCard();
         }
-        CreditPaymentPage CreditPaymentPage = new CreditPaymentPage();
+
+        CreditPaymentPage creditPaymentPage = new CreditPaymentPage();
+
         @Test
         void shouldNotDoPaymentWhenOwnerEmpty() {
             val info = getEmptyOwner();
-            CreditPaymentPage.fillForm(info);
-            CreditPaymentPage.waitIfShouldFillFieldMessage();
+            creditPaymentPage.fillForm(info);
+            creditPaymentPage.waitIfShouldFillFieldMessage();
         }
 
 
         @Test
         void shouldNotDoPaymentWhenOwnerInCyrillic() {
             val info = getInvalidOwnerWithCyrillic();
-            CreditPaymentPage.fillForm(info);
-            CreditPaymentPage.waitIfWrongFormatMessage();
+            creditPaymentPage.fillForm(info);
+            creditPaymentPage.waitIfWrongFormatMessage();
         }
 
         @Test
         void shouldNotDoPaymentWhenOwnerWithDigits() {
             val info = getInvalidOwnerWithDigits();
-            CreditPaymentPage.fillForm(info);
-            CreditPaymentPage.waitIfWrongFormatMessage();
+            creditPaymentPage.fillForm(info);
+            creditPaymentPage.waitIfWrongFormatMessage();
         }
 
 

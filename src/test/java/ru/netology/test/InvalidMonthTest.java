@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import ru.netology.pages.CreditPaymentPage;
 import ru.netology.pages.DebitPaymentPage;
+import ru.netology.pages.MainPage;
 
 import static ru.netology.data.DataHelper.*;
 
 public class InvalidMonthTest extends TestBase {
-
 
 
     @Nested
@@ -21,33 +21,35 @@ public class InvalidMonthTest extends TestBase {
         void setUpAllDebitCardTests() {
             mainPage.payWithDebitCard();
         }
-        DebitPaymentPage DebitPaymentPage = new DebitPaymentPage();
+
+        DebitPaymentPage debitPaymentPage = new DebitPaymentPage();
+
         @Test
         void shouldNotDoPaymentWhenEmptyMonth() {
             val info = getEmptyMonth();
-            DebitPaymentPage.fillForm(info);
-            DebitPaymentPage.waitIfWrongFormatMessage();
+            debitPaymentPage.fillForm(info);
+            debitPaymentPage.waitIfWrongFormatMessage();
         }
 
         @Test
         void shouldNotDoPaymentWhenMonthIsZeroZero() {
             val info = getInvalidFormatMonthIsZeroZero();
-            DebitPaymentPage.fillForm(info);
-            DebitPaymentPage.waitIfWrongTermMessage();
+            debitPaymentPage.fillForm(info);
+            debitPaymentPage.waitIfWrongTermMessage();
         }
 
         @Test
         void shouldNotDoPaymentWhenIrrelevantMonth() {
             val info = getInvalidFormatMonthIsIrrelevant();
-            DebitPaymentPage.fillForm(info);
-            DebitPaymentPage.waitIfWrongTermMessage();
+            debitPaymentPage.fillForm(info);
+            debitPaymentPage.waitIfWrongTermMessage();
         }
 
         @Test
         void shouldNotDoPaymentWhenMonthIs1Digit() {
             val info = getInvalidFormatMonthIsOneDigit();
-            DebitPaymentPage.fillForm(info);
-            DebitPaymentPage.waitIfWrongFormatMessage();
+            debitPaymentPage.fillForm(info);
+            debitPaymentPage.waitIfWrongFormatMessage();
         }
     }
 
@@ -55,38 +57,39 @@ public class InvalidMonthTest extends TestBase {
     class FieldMonthOfCreditCardTests {
 
 
-
         @BeforeEach
         void setUpAllCreditCardTests() {
             mainPage.payWithCreditCard();
         }
-        CreditPaymentPage CreditPaymentPage = new CreditPaymentPage();
+
+        CreditPaymentPage creditPaymentPage = new CreditPaymentPage();
+
         @Test
         void shouldNotDoPaymentWhenEmptyMonth() {
             val info = getEmptyMonth();
-            CreditPaymentPage.fillForm(info);
-            CreditPaymentPage.waitIfWrongFormatMessage();
+            creditPaymentPage.fillForm(info);
+            creditPaymentPage.waitIfWrongFormatMessage();
         }
 
         @Test
         void shouldNotDoPaymentWhenMonthIsZeroZero() {
             val info = getInvalidFormatMonthIsZeroZero();
-            CreditPaymentPage.fillForm(info);
-            CreditPaymentPage.waitIfWrongTermMessage();
+            creditPaymentPage.fillForm(info);
+            creditPaymentPage.waitIfWrongTermMessage();
         }
 
         @Test
         void shouldNotDoPaymentWhenIrrelevantMonth() {
             val info = getInvalidFormatMonthIsIrrelevant();
-            CreditPaymentPage.fillForm(info);
-            CreditPaymentPage.waitIfWrongTermMessage();
+            creditPaymentPage.fillForm(info);
+            creditPaymentPage.waitIfWrongTermMessage();
         }
 
         @Test
         void shouldNotDoPaymentWhenMonthIs1Digit() {
             val info = getInvalidFormatMonthIsOneDigit();
-            CreditPaymentPage.fillForm(info);
-            CreditPaymentPage.waitIfWrongFormatMessage();
+            creditPaymentPage.fillForm(info);
+            creditPaymentPage.waitIfWrongFormatMessage();
         }
     }
 }

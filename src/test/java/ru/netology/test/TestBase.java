@@ -28,7 +28,7 @@ public class TestBase {
 
     @BeforeEach
     void setUpUrl() {
-        mainPage =  open(System.getProperty("sut.url"), MainPage.class);
+        mainPage = open(System.getProperty("sut.url"), MainPage.class);
     }
 
     @AfterEach

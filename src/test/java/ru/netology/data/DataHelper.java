@@ -18,20 +18,22 @@ public class DataHelper {
     public static String generateValidHolder() {
         return faker.name().fullName().toUpperCase();
     }
+
     public static String generateMonth() {
 
         return LocalDate.now().plusMonths(1).format(DateTimeFormatter.ofPattern("MM"));
     }
+
     public static String generateYear() {
 
 
         return LocalDate.now().plusYears(1).format(DateTimeFormatter.ofPattern("yy"));
 
     }
+
     public static String generateValidCVV() {
         return faker.numerify("###");
     }
-
 
 
     @Value
@@ -46,7 +48,7 @@ public class DataHelper {
     }
 
     public static CardValidInformationModel getValidApprovedCardData() {
-        return new CardValidInformationModel("4444 4444 4444 4441",generateMonth(), generateYear(), generateValidHolder(), generateValidCVV());
+        return new CardValidInformationModel("4444 4444 4444 4441", generateMonth(), generateYear(), generateValidHolder(), generateValidCVV());
     }
 
     public static CardValidInformationModel getValidDeclinedCardData() {

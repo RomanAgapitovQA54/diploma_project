@@ -29,7 +29,6 @@ public class DebitPaymentPage {
     private final SelenideElement fieldFillRequiredMessage = $(byText("Поле обязательно для заполнения"));
 
 
-
     public void fillForm(DataHelper.CardValidInformationModel info) {
         numberField.setValue(info.getNumber());
         monthField.setValue(info.getMonth());
