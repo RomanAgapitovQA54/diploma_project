@@ -41,7 +41,7 @@ public class SQLHelper {
         }
     }
 
-    public static String getStatusForPaymentWithDebitCard() {
+    public static String getStatusForPaymentWithDebitCard(String paymentId) {
         val extractStatus = "SELECT * FROM payment_entity";
         val runner = new QueryRunner();
         try (val conn = getConnection()) {
@@ -53,7 +53,7 @@ public class SQLHelper {
         return null;
     }
 
-    public static String getStatusForPaymentWithCreditCard() {
+    public static String getStatusForPaymentWithCreditCard(String paymentId) {
         val extractStatus = "SELECT * FROM credit_request_entity";
         val runner = new QueryRunner();
         try (val conn = getConnection()) {

@@ -51,14 +51,14 @@ docker-compose up
 - для СУБД **MySQL**:
 
 ```java
-java -jar artifacts/aqa-shop.jar -Dspring./datasource/url=jdbc:mysql://localhost:3306/app
+java -jar artifacts/aqa-shop.jar -Dspring.datasource.url=jdbc:mysql://localhost:3306/app
 
 ```
 
 - для СУБД **PostgreSQL**:
 
 ```java
-java -jar artifacts/aqa-shop.jar -Dspring./datasource/url=jdbc:postgresql://localhost:5432/app
+java -jar artifacts/aqa-shop.jar -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app
 ```
 
 Дожидаемся сообщения, которое будет означать готовность SUT к работе:
